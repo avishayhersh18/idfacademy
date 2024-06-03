@@ -8,12 +8,14 @@ import { useRouter } from "next/navigation";
 import useUserStore from "@/app/_contexts/userContext";
 import { Loading } from "react-daisyui";
 import ErrorMessage from "../_component/ErrorMessage";
-// import ReactQuill from "react-quill";
 import dynamic from "next/dynamic"; // Import dynamic from next/dynamic to load ReactQuill dynamically
 
 const ReactQuillNoSSR = dynamic(() => import("react-quill"), {
   ssr: false, // Disable server-side rendering for ReactQuill
 });
+
+import "react-quill/dist/quill.snow.css"; // Import Quill styles
+
 interface ErrorResponse {
   message?: string;
 }

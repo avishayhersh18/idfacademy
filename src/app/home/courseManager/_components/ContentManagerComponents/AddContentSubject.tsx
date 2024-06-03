@@ -3,6 +3,7 @@ import { Loading } from "react-daisyui";
 import { EditorState, convertToRaw } from "draft-js";
 import "react-quill/dist/quill.snow.css"; // Import Quill styles
 import ReactQuill from "react-quill";
+import Switch from "react-switch";
 import { Toggle } from "react-daisyui";
 import { GeneralTexts, editTexts } from "@/HebrewStrings/Texts";
 import { ContentData } from "@/app/types";
@@ -56,19 +57,53 @@ const AddContentForm: React.FC<AddContentFormProps> = ({
 
   return (
     <div className="flex flex-col">
+      <div className="flex items-center mb-4">
+        <Switch
+          onChange={handleToggle}
+          checked={isTextContent}
+          onColor="#00C853"
+          offColor="#D32F2F"
+          uncheckedIcon={
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+                color: "white",
+                fontSize: 12,
+              }}
+            ></div>
+          }
+          checkedIcon={
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "100%",
+                color: "white",
+                fontSize: 12,
+              }}
+            ></div>
+          }
+        />
+        <span className="ml-2">
+          {isTextContent
+            ? `${editTexts.textalSwitch}`
+            : `${editTexts.fileUploadswitch}`}
+        </span>
+      </div>
       <div>
-        <Toggle checked={isTextContent} onChange={handleToggle} />
-        <div>
-          <input
-            type="text"
-            placeholder={editTexts.title}
-            value={contentData.title}
-            onChange={(e) =>
-              setContentData({ ...contentData, title: e.target.value })
-            }
-            className="p-2 w-full border rounded-md shadow-sm mb-4"
-          />
-        </div>
+        <input
+          type="text"
+          placeholder={editTexts.title}
+          value={contentData.title}
+          onChange={(e) =>
+            setContentData({ ...contentData, title: e.target.value })
+          }
+          className="p-2 w-full border rounded-md shadow-sm mb-4"
+        />
       </div>
       {isTextContent ? (
         <div>

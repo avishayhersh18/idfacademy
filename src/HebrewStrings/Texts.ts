@@ -13,21 +13,20 @@ export const LoginTexts = {
   register: "הרשמה",
 };
 
-
-export const NavBarText={
+export const NavBarText = {
   AdminMenu: "לתפריט ניהול",
-  backToUserMenu:"חזרה לתפריט משתמש",
-  startLearning:"התחל ללמוד",
+  backToUserMenu: "חזרה לתפריט משתמש",
+  startLearning: "התחל ללמוד",
   homePage: "דף הבית",
   userArea: "אזור אישי",
   courseCatalog: "קטלוג קורסים",
   courseManager: "ניהול קורסים",
-  premsionManager:"בקשות משתמש לקורס",
+  premsionManager: "בקשות משתמש לקורס",
   courseCreation: "יצירת קורס",
   myCourses: "הקורסים שלי",
   aboutUs: "אודותינו",
   logout: "התנתק",
-}
+};
 export const UserTexts = {
   userWelcome: " ברוכים הבאים",
   userQuis: "שאלות",
@@ -37,18 +36,18 @@ export const UserTexts = {
 export const HomeTexts = {
   welcome: ",ברוכים הבאים",
   goodMorning: "בוקר טוב",
-  goodAfterNoon:"צהוריים טובים",
+  goodAfterNoon: "צהוריים טובים",
   goodEvening: "ערב טוב",
   mercasHadigitech: "מרכז הדיגיטק",
   aboutUs: "שלום חברים",
-  continueStanding:"המשך למידה"
+  continueStanding: "המשך למידה",
 };
 
 export const AddCourseTexts = {
   courseName: "שם קורס",
   courseSubmit: "הוסף קורס",
-  description_course_card:"התיאור שיופיע בכרטיס הקורס ",
-  description_course:"תיאור הקורס באופן מלא:",
+  description_course_card: "התיאור שיופיע בכרטיס הקורס ",
+  description_course: "תיאור הקורס באופן מלא:",
   addChapter: "הוספת פרק",
   chapter: {
     chapterName: "שם פרק",
@@ -69,24 +68,24 @@ export const AddCourseTexts = {
     },
   },
 };
-export const searchCourseTexts={
-  hideRegisterCourses:"הסתר קורסים שאתה רשום כבר ",
-}
+export const searchCourseTexts = {
+  hideRegisterCourses: "הסתר קורסים שאתה רשום כבר ",
+};
 
-export const presentCourseDetailTexts={
-  descripitonOfCourse:"תיאור הקורס:",
-  rateOfCourse:"דירוג הקורס:",
-  rateThisCourse:"דרג את הקורס:",
-  subscribeNum:"מספר מינויים:",
-  chaptersOfCourse:"פרקי הקורס"
-}
+export const presentCourseDetailTexts = {
+  descripitonOfCourse: "תיאור הקורס:",
+  rateOfCourse: "דירוג הקורס:",
+  rateThisCourse: "דרג את הקורס:",
+  subscribeNum: "מספר מינויים:",
+  chaptersOfCourse: "פרקי הקורס",
+};
 export const editTexts = {
   edit: "ערוך",
-  courseDescription:"ערוך תיאור:",
-  descripiton:"תיאור",
-  courseDescriptionSubTitle:"ערוך תקציר הקורס",
-  descriptionSubTitleCourse:"תקציר הקורס",
-  title:"כותרת",
+  courseDescription: "ערוך תיאור:",
+  descripiton: "תיאור",
+  courseDescriptionSubTitle: "ערוך תקציר הקורס",
+  descriptionSubTitleCourse: "תקציר הקורס",
+  title: "כותרת",
   courses: "קורסים",
   chapters: "פרקים",
   subjects: "נושאים",
@@ -96,7 +95,7 @@ export const editTexts = {
   addSubject: "הוסף נושא",
   addContent: "הוסף תוכן",
 
-  showCourse:"הצג קורס",
+  showCourse: "הצג קורס",
   showChapters: "הצג פרקים",
   showSubjects: "הצג נושאים",
   showContents: "הצג תכנים",
@@ -115,24 +114,27 @@ export const editTexts = {
   subjectName: "שם נושא",
   contentName: "שם תוכן",
 
+  fileUploadswitch: "סרטונים",
+  textalSwitch: " תוכן טקסואלי",
+
   chapterBrief: "תקציר פרק",
-  rename:"שנה שם",
+  rename: "שנה שם",
   comments: "הערות",
 };
 
 export const GeneralTexts = {
   submit: "אישור",
   back: "חזור",
-  accept:"אשר",
-  reject:"דחה"
+  accept: "אשר",
+  reject: "דחה",
 };
 
-export const CourseCardTexts={
-  progress:"הושלם:",
-  requestContinueToApprove:"הבקשה ממתינה לאישור מנהל",
-  createOn:"נוצר ב:",
-  estimatedTimeText:"זמן משוער:"
-}
+export const CourseCardTexts = {
+  progress: "הושלם:",
+  requestContinueToApprove: "הבקשה ממתינה לאישור מנהל",
+  createOn: "נוצר ב:",
+  estimatedTimeText: "זמן משוער:",
+};
 
 export const messagesText = {
   finishCourse: "סיימת את הקורס לכן כפתור לא פעיל",

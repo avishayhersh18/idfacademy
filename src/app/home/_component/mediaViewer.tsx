@@ -4,6 +4,7 @@ import { ContentData } from "@/app/types";
 import { Loading } from "react-daisyui";
 import { getMimeType } from "@/utils/filesUtils";
 import franc from "franc";
+import { MediaViewerStyles } from "@/app/assets/design";
 interface MediaViewerProps {
   content: ContentData;
   isPresentMode: boolean;
@@ -16,6 +17,7 @@ const MediaViewer: React.FC<MediaViewerProps> = ({
   const [mediaType, setMediaType] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
   const cleanup = () => {
     if (mediaSrc) {
       URL.revokeObjectURL(mediaSrc);
@@ -52,18 +54,14 @@ const MediaViewer: React.FC<MediaViewerProps> = ({
     }
   }, [content]);
 
-  // const detectLanguage = (text:string) => {
-  //   const language = franc(text);
-  //   return language === 'he' ? 'hebrew' : 'english';
-  // };
   const renderLoading = () => (
-    <div className="text-center text-white">
+    <div className={MediaViewerStyles.loading}>
       <Loading />
     </div>
   );
 
   const renderError = () => (
-    <div className="text-center text-red-500">{error}</div>
+    <div className={MediaViewerStyles.error}>{error}</div>
   );
 
   const renderMedia = () => {
@@ -71,34 +69,33 @@ const MediaViewer: React.FC<MediaViewerProps> = ({
     if (error) return renderError();
     if (content.file_name === "") {
       return (
-        <div className="flex items-start bg-white media-container w-screen max-h-full p-4 overflow-y-auto">
+        <div className={MediaViewerStyles.textContainer}>
           <div
-            className="w-[700px] h-[400px] max-h-full text-right"
+            className={MediaViewerStyles.textContent}
             dangerouslySetInnerHTML={{ __html: content.comments }}
           />
         </div>
       );
     }
     switch (true) {
-      case mediaType.startsWith("image"): {
+      case mediaType.startsWith("image"):
         return (
           <img
-            className="w-full max-h-full object-contain"
+            className={MediaViewerStyles.mediaImage}
             src={mediaSrc}
             alt={content.file_name}
           />
         );
-      }
       case mediaType.startsWith("video"):
         return (
-          <video className="w-screen max-h-full object-contain" controls>
+          <video className={MediaViewerStyles.mediaVideo} controls>
             <source src={mediaSrc} type={mediaType} />
             Your browser does not support the video tag.
           </video>
         );
       case mediaType.startsWith("audio"):
         return (
-          <audio className="w-screen" controls>
+          <audio className={MediaViewerStyles.mediaAudio} controls>
             <source src={mediaSrc} type={mediaType} />
             Your browser does not support the audio element.
           </audio>
@@ -106,25 +103,28 @@ const MediaViewer: React.FC<MediaViewerProps> = ({
       case mediaType === "text/plain":
         return (
           <a
-            className="text-white bg-black"
+            className={MediaViewerStyles.downloadLink}
             href={mediaSrc}
             download
-          >{`Download Text File ${content.file_name}`}</a>
+          >
+            {`Download Text File ${content.file_name}`}
+          </a>
         );
       default:
         return (
-          <a className="text-white bg-black" href={mediaSrc} download>
-            {`Download File ${content.file_name}`}|
+          <a
+            className={MediaViewerStyles.downloadLink}
+            href={mediaSrc}
+            download
+          >
+            {`Download File ${content.file_name}`}
           </a>
         );
     }
   };
+
   return (
-    <div
-      className={`overflow-hidden flex justify-center items-center ${
-        isPresentMode ? "w-[700px] h-[500px]" : "w-[100%] h-[250px]"
-      }`}
-    >
+    <div className={MediaViewerStyles.container(isPresentMode)}>
       {renderMedia()}
     </div>
   );
